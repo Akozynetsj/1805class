@@ -1,25 +1,15 @@
-class OddIterator:
+#2
+class SquareGenerator:
     def __init__(self, n):
-        if  n <= 0 and isinstance(n, int):
-            raise ValueError('Treba cile natur chuslo')
+        if not isinstance(n, (int, float)):
+            raise ValueError('це повинно бути ціле число')
         self.n = n
-        self.current = 1
-    def __next__(self):
-        return self
-    def __next__(self):
-            if self.current > self.n:
-                raise StopIteration
-            else:
-                result = self.current
-                self.current += 2
-                return result
+    def generator_square(self):
+        for i in range(1, int(self.n) + 1):
+            yield i ** 2
 
 try:
-    for num in OddIterator(10):
+    for num in SquareGenerator(20). generator_square():\
         print(num)
-except ValueError as e:
+except TypeError as e:
     print(e)
-
-
-
-
